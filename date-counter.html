@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Date Counter</title>
+    <style type="text/css" media="screen">
+    body{
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+    }
+    h1{
+      border-bottom: 2px inset #bbb;
+      padding-bottom: 1em;
+      font-family: Impact;
+    }
+    table {
+        border: 2px solid #999;
+        box-shadow: 1px 1px 1px 1px #ddd;;
+        background-color: #f4f4f4;
+    }
+
+    td {
+        border: 1px solid #999;
+        box-shadow: 1px 1px #ddd;
+        padding: 2px;
+    }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Date Counter</h1>
+        <h3>Enter your date of birth and click on Submit to display how old you are, precisely...</h3>
+        <table>
+            <form>
+                <tr>
+                    <td>
+                        <input type="button" value="Submit" onclick="calcDateCount()" />
+                    </td>
+                    <td>
+                        <input type="button" value="Reset" onclick="reset()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date of birth</td>
+                    <td>
+                        <input type="datetime-local" id="date-input" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>You are days old:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="result" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Plus hours old:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="result" value="" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Plus minutes old:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="result" value="" />
+                    </td>
+                </tr>
+            </form>
+        </table>
+    </center>
+    <script type="text/javascript">
+    function calcDateCount() {
+        var mydate = document.getElementById("date-input").value;
+        var mydob = new Date(mydate);
+        var age = Date.now() - mydob + (5.5*60*60*1000);
+        var ms_in_day = 24 * 60 * 60 * 1000;
+        var days = Math.floor(age / ms_in_day);
+        var age_h = age % ms_in_day;
+        var ms_in_hr = ms_in_day / 24;
+        var hours = Math.floor(age_h / ms_in_hr);
+        var age_m = age_h % ms_in_hr;
+        var ms_in_min = ms_in_hr / 60;
+        var mins = Math.floor(age_m / ms_in_min);
+        document.getElementsByName("result")[0].value = days;
+        document.getElementsByName("result")[1].value = hours;
+        document.getElementsByName("result")[2].value = mins;
+    }
+    </script>
+</body>
+
+</html>

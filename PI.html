@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Playing with π</title>
+</head>
+<body>
+  <h2>Playing with π </h2>
+  <br />
+  <h3>Enter a number 'n' to print π to n<sup>th</sup> digit after decimal</h3>
+  <form>
+    <input type="text" id="no_of_digits" placeholder="enter a number less than or equal to 20" style="min-width: 300px;"/>
+    <input type="button" name="truncate-btn" value="Submit" onclick="truncate()" />
+  </form>
+  <div id="result" style="margin: 10px auto; padding: 10px auto; background-color: #ddd" ></div>
+  <script type="text/javascript">
+    function truncate(){
+      var num = document.getElementById("no_of_digits").value;
+      if(num<=20)
+        document.write(Math.PI.toFixed(num));
+      else
+        document.write("Out of range value entered<br />Please enter a number within 20");
+    }
+  </script>
+</body>
+</html>

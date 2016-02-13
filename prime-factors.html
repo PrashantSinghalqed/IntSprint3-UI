@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prime Factors</title>
+  <script type="text/javascript">
+    function print_prime(num){
+      num = document.getElementById("number").value;
+      var root, factors = [], x, sqrt = Math.sqrt, doLoop = 1 < num;
+      if(!(num % 1 === 0) || !(num > 0))
+        document.getElementById("result").innerHTML = "Please enter a positive integer";
+      else{
+        while(doLoop){
+        root = sqrt(num);
+        x = 2;
+        if (num % x) {
+            x = 3;
+            while ((num % x) && ((x += 2) < root));
+        }
+        x = (x > root) ? num : x;
+        factors.push(x);
+        doLoop = ( x != num );
+        num /= x;
+    }
+        Array.prototype.unique = function() {           //To get unique values from array
+        var unique = [];
+        for (var i = 0; i < this.length; i++) {
+        if (unique.indexOf(this[i]) == -1) {
+            unique.push(this[i]);
+        }
+      }
+    return unique;
+    }
+      var unique_factors = factors.unique();
+      document.getElementById("result").innerHTML = "Result: <br />" + unique_factors.join(", ");
+      }
+    }
+  </script>
+</head>
+<body>
+  <center>
+  <h2>Prime factorization</h2>
+  <br />
+  <h3>Enter a number and click on prime factorize button to print its prime factors</h3>
+    <form>
+      <input type="number" id="number" placeholder="enter a positive integer" style="min-width: 200px;"/>
+      <br />
+      <input type="button" name="print" value="Prime Factorize" onclick="print_prime()" />
+    </form>
+    <div id="result" style="margin: 30px auto; padding: 10px auto; background-color: #ddd; height: 100px; width: 30%;" ></div>
+  </center>
+
+</body>
+</html>
