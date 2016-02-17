@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mortgage Calculator</title>
+    <script src="js/mortgage-calc.js"></script>
+    <link rel="stylesheet" href="css/mortgage-calc.css">
+</head>
+
+<body>
+    <div class="smpc-div">
+        <h1>EMI Calculator</h1>
+        <form name=mortgagecalc>
+            <p>Principal amount in ₹(i.e. how much will you be borrowing?):
+                <br>
+                <input type=text onkeypress="return validNumber(event)" name=loan size=10> <span class="smpc-error" id="loanError"></span></p>
+            <p>Mortgage Term(in years):
+                <br>
+                <input type=text onkeypress="return validNumber(event)" name=years size=5> <span class="smpc-error" id="yearsError"></span></p>
+            <p>Choose compound type:
+                <br>
+                <select name="compound_type">
+                    <option value="monthly">Monthly</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="annually">Annually</option>
+                    <!-- <option value="continuous">Continuous</option> -->
+                </select></p>
+            <p>Interest Rate(in %):
+                <br>
+                <input type=text onkeypress="return validNumber(event)" name=rate size=5> <span class="smpc-error" id="rateError"></span></p>
+            <p>Loan Start Date:
+                <br>
+                <input type=date name=start_date>
+            </p>
+            <input type=button onClick="return myPayment()" value=Calculate>
+            <input type=button onClick="return myPaymentReset()" value=Reset>
+        </form>
+        <p class="smpc-monthlypayment" id="monthlyPayment"> </p>
+        <p class="smpc-friendlyreminder" id="friendlyReminder">This is your Monthly Mortgage Payment(principal + interest) compounded monthly.</p>
+        <p class="smpc-payoff" id="payoff"> </p>
+    </div>
+    <p id="reference"><small>📃 script referenced from <a href="http://ravingroo.com/decoded/download-simple-mortgage-payment-calculator.php">http://ravingroo.com/decoded/download-simple-mortgage-payment-calculator.php</a></small></p>
+</body>
+
+</html>

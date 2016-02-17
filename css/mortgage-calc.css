@@ -1,0 +1,44 @@
+body{
+  font-family: Lucida Grande, Arial, sans-serif;
+}
+
+.smpc-div {
+background-color: #f9f9f9;
+border:1px solid #cccccc;
+padding:15px;
+width: 50%;
+margin: auto;
+}
+
+h1{
+  width: 45%;
+  margin: auto;
+}
+
+.smpc-error {
+font-family: Verdana, Arial, Helvetica, sans-serif;
+font-size: 10px;
+color:#ca0000;
+}
+
+.smpc-monthlypayment {
+margin-top:15px;
+font-size:24px;
+color:#ca0000;
+}
+
+.smpc-friendlyreminder {
+display:none;
+}
+
+.smpc-payoff {
+margin-top:15px;
+font-size:20px;
+color:#eb0000;
+}
+
+#reference{
+  width: 52%;
+  margin: auto;
+}
+
